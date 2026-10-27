@@ -31,7 +31,7 @@ No GitHub account? Use **Suggest an update on Discord** at the bottom of any pag
 
 ### Maintainers (bigger edits, images, new pages)
 
-1. Clone the repo once: `git clone https://github.com/ApocPro/AltMakersWiki.git`
+1. Clone the repo once: `git clone https://github.com/alt-makers/AltMakersWiki.git`
 2. Install MkDocs Material once: `pip install mkdocs-material`
 3. Before each piece of work, update and branch off `main`:
    ```bash

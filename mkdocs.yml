@@ -1,7 +1,7 @@
 site_name: Makerspace Wiki
 site_description: Tool and equipment reference wiki for our makerspace
 site_url: https://wiki.alt-makers.com/
-repo_url: https://github.com/ApocPro/AltMakersWiki
+repo_url: https://github.com/alt-makers/AltMakersWiki
 repo_name: AltMakersWiki
 edit_uri: edit/main/docs/
 
