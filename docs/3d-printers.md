@@ -45,6 +45,9 @@ If the printer is on you can find it in Prusa Connect.  Do not start your print 
 - [Prusa Connect and PrusaLink explained](https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_1)
 - [Adding the printer to Prusa Connect](https://help.prusa3d.com/article/adding-the-printer-to-prusa-connect-core-one-mk4-s-mk3-9-s-mk3-5-s-xl-mini_1)
 
+!!! note "Getting Started with Prusa Connect"
+    Once you complete your training, ask the shop staff to add your email address to the Prusa user pool. You will receive an invitation email prompting you to sign in or create a Prusa account. After setting up your account, you will have access to the printers and can use them as described above. Once authenticated in your software you are ready to print.
+
 ## Safety
 
 !!! danger "Required before first use"
@@ -230,3 +233,16 @@ A: No — the shop only runs Prusament filament on these printers, since Prusa S
 
 **Q: How do I reserve print time?**
 A: There is no "reservation". Instead there is a print queue.  If someone is using the printer, upload your print to the queue and once the printer is set to ready the next print in the queue can be started.
+
+**Q: What should I do if the nozzle gets clogged?**
+A: Prusa printers have a filament sensor that automatically pauses the print if a clog or extrusion issue occurs. Please do not attempt to fix the nozzle yourself—instead, report the issue in the #report-a-problem channel on our Discord server so a staff member can assist.
+
+**Q: My print will not stick to the bed. How do I fix it?**
+A: Bed adhesion issues are usually caused by print settings or sheet selection. Please try the following:
+
+1. Verify Filament Settings: Double-check that your slicer settings match your loaded filament.
+2. Choose the Right Sheet: If printing PLA on a textured sheet, switch to a smooth sheet for better adhesion.
+3. Enable a Brim: For models with small contact areas or large flat footprints, add a brim in your slicer settings.
+4. Check Community Reports: Check the Discord server to see if a specific printer has been flagged for issues.
+
+Printer calibration (including bed leveling) is performed regularly by shop staff, so please do not re-calibration on your own and raise the issue in #report-a-problem.
