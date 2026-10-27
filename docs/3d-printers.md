@@ -2,6 +2,58 @@
 
 We run Original Prusa FFF (filament) printers, each currently dedicated to a specific material family. We have ordered the INDX tool changer for 2 of the printers which will enable you to do multi material, multi color prints on 3 of the 4 printers that we have. Pick your printer by material first (PLA/PETG vs. flexible TPU vs. abrasive carbon-fiber/nylon composites need different machines), then by size (the XL's larger, multi-tool bed vs. the Core One's single-tool bed). All FFF machines currently run **0.4mm nozzles** and **Prusament-brand filament only** — see the [Prusa Slicer](#prusa-slicer) section below for why that matters and how to pick the right settings.
 
+## Control Software
+
+### Prusa Slicer
+
+**Used for:** Slicing models for every printer above, selecting the correct printer/nozzle/filament profile, and sending finished jobs to the shop's printers over Prusa Connect.
+**Access:** Free — [download for Windows/macOS/Linux](https://www.prusa3d.com/page/prusaslicer_424/).
+
+**Getting your file in**
+
+Import your **STL** or **STEP** file (File → Import). STEP files are tessellated into a mesh on import — if curved surfaces look faceted, increase the import resolution and re-import. If you're picking up a project you or someone else already sliced, `.3mf` project files preserve object placement, per-object settings, and multi-part/multi-material assignments, which STL/STEP alone don't.
+
+**Choosing the right printer profile**
+
+Each physical printer in the shop is a separate profile/preset in Prusa Slicer (e.g. _Prusa CORE One HF0.4 nozzle_, _Original Prusa XL - 5T Input Shaper 0.4 nozzle_ ) — pick the one that matches the machine and nozzle you're actually going to print on. All of them are currently configured for a **0.4mm nozzle**; if that ever changes on a given machine, the profile needs to be updated to match (extrusion width and layer height are both derived from nozzle size, so a mismatched profile will give bad results even if the file looks fine in the preview).
+
+**Choosing the right filament profile**
+
+We only stock **Prusament** filament, specifically because PrusaSlicer ships with verified, pre-tuned profiles for it (temperatures, cooling, flow, retraction) rather than the generic guesses used for unknown third-party filament — using the matching Prusament profile is how we get consistently good prints without members needing to tune settings by hand. To pick it:
+
+1. Open the filament dropdown (or run the Configuration Wizard → Filaments tab) and select the **Prusament** vendor.
+2. Choose the profile matching your material and the machine you're using — e.g. Prusament PLA, Prusament PETG, Prusament TPU, Prusament nylon/CF blends — matched to whichever Core One or XL tool is loaded with that material.
+3. If a filament profile shows up with a red flag, it's marked incompatible with your current printer/nozzle profile — don't use it. Double-check you've selected the right printer profile first; a red flag is usually a sign the printer and filament profiles don't agree on nozzle size or printer model.
+
+**Connecting to a printer over Prusa Connect**
+
+If the printer is on you can find it in Prusa Connect.  Do not start your print from home.  Even though you can see through the camera that the bed is clear, you are required to come in and go through the proper start proceedure to make sure that there is enough material loaded in the printer to complete your print and that everything is properly setup.  Starting your print completely remotely has too many risks that can cost you and/or the space money.
+
+1. In Prusa Slicer, go to **File → Printer Settings**, and make sure the base printer profile matches the machine you're using. You can keep the standard System presets. You can make changes but please make sure you understand the changes you make before you assume that the printer will just run smoothly with whatever setting.
+2. Under **Printers → Add/Remove printer**, go through the configuration wizard and choose _Prusa CORE One & One+ & One+ (Gen2) HF0.4 mm nozzle_ and _Original Prusa XL - 5T Input Shaper 0.4 mm nozzle_
+3. This provides you with the correct settings for our printers so you can slice your design.  When you go to **Prusa Connect** You will see our actual printers: _Alt-MakersXL5_ and _PLA/PETG - CoreOne+_
+4. Slice your model, then instead of exporting G-code to a file, choose **Send to Connect** and choose the correct printer. Confirm the send — the job uploads to Prusa Connect and appears in the printer's queue.
+5. Walk to the printer and start the print from its touchscreen (or confirm it starts automatically, depending on the printer's settings).
+
+!!! warning "Troubleshooting"
+    - **"Could not connect" / test fails:** the printer is powered off or has failed to connect to the network, turn it off and on again
+    - **Print sent but printer shows nothing:** it may still be loading — wait ~30 seconds. If nothing comes check the network connection in the touchscreen
+
+**Resources**
+
+- [PrusaSlicer download](https://www.prusa3d.com/page/prusaslicer_424/)
+- [Prusa Connect and PrusaLink explained](https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_1)
+- [Adding the printer to Prusa Connect](https://help.prusa3d.com/article/adding-the-printer-to-prusa-connect-core-one-mk4-s-mk3-9-s-mk3-5-s-xl-mini_1)
+
+## Safety
+
+!!! danger "Required before first use"
+
+- **PPE:** Burn awareness around hot nozzles/beds on all FFF machines (Core Ones, XL). 
+- **Ventilation:** Materials like nylon and ABS/ASA off-gas more than PLA — we do not print ABS or ASA because of this, the nylon printer will have dedicated ventilation. 
+- **Printing overnight is allowed, but make sure the light in the machine is shut off in the Control Menu in Prusa Connect**
+- **Nozzle handling:** Don't touch the nozzle or bed shortly after a print finishes — both stay hot well after printing stops.
+
 ## Machines
 
 ### Prusa Core One (PLA/PETG)
@@ -131,7 +183,7 @@ The Prusa XL is a larger, CoreXY printer that supports **5 independent tool head
 
 ---
 
-## Software
+## Design Software
 
 ### Fusion (Design/CAD)
 
@@ -167,56 +219,6 @@ Solidworks is used and has been used for decades in Engineering CAD.  For this r
 - Portal: https://eu1-makers.iam.3dexperience.3ds.com/login?serverId=FRONT_0_8089&service=https%3A//eu1-makers-ifwe.3dexperience.3ds.com/
 
 ---
-
-### Prusa Slicer
-
-**Used for:** Slicing models for every printer above, selecting the correct printer/nozzle/filament profile, and sending finished jobs to the shop's printers over Prusa Connect.
-**Access:** Free — [download for Windows/macOS/Linux](https://www.prusa3d.com/page/prusaslicer_424/).
-
-**Getting your file in**
-
-Import your **STL** or **STEP** file (File → Import). STEP files are tessellated into a mesh on import — if curved surfaces look faceted, increase the import resolution and re-import. If you're picking up a project you or someone else already sliced, `.3mf` project files preserve object placement, per-object settings, and multi-part/multi-material assignments, which STL/STEP alone don't.
-
-**Choosing the right printer profile**
-
-Each physical printer in the shop is a separate profile/preset in Prusa Slicer (e.g. _Prusa CORE One HF0.4 nozzle_, _Original Prusa XL - 5T Input Shaper 0.4 nozzle_ ) — pick the one that matches the machine and nozzle you're actually going to print on. All of them are currently configured for a **0.4mm nozzle**; if that ever changes on a given machine, the profile needs to be updated to match (extrusion width and layer height are both derived from nozzle size, so a mismatched profile will give bad results even if the file looks fine in the preview).
-
-**Choosing the right filament profile**
-
-We only stock **Prusament** filament, specifically because PrusaSlicer ships with verified, pre-tuned profiles for it (temperatures, cooling, flow, retraction) rather than the generic guesses used for unknown third-party filament — using the matching Prusament profile is how we get consistently good prints without members needing to tune settings by hand. To pick it:
-
-1. Open the filament dropdown (or run the Configuration Wizard → Filaments tab) and select the **Prusament** vendor.
-2. Choose the profile matching your material and the machine you're using — e.g. Prusament PLA, Prusament PETG, Prusament TPU, Prusament nylon/CF blends — matched to whichever Core One or XL tool is loaded with that material.
-3. If a filament profile shows up with a red flag, it's marked incompatible with your current printer/nozzle profile — don't use it. Double-check you've selected the right printer profile first; a red flag is usually a sign the printer and filament profiles don't agree on nozzle size or printer model.
-
-**Connecting to a printer over Prusa Connect**
-
-If the printer is on you can find it in Prusa Connect.  Do not start your print from home.  Even though you can see through the camera that the bed is clear, you are required to come in and go through the proper start proceedure to make sure that there is enough material loaded in the printer to complete your print and that everything is properly setup.  Starting your print completely remotely has too many risks that can cost you and/or the space money.
-
-1. In Prusa Slicer, go to **File → Printer Settings**, and make sure the base printer profile matches the machine you're using. You can keep the standard System presets. You can make changes but please make sure you understand the changes you make before you assume that the printer will just run smoothly with whatever setting.
-2. Under **Printers → Add/Remove printer**, go through the configuration wizard and choose _Prusa CORE One & One+ & One+ (Gen2) HF0.4 mm nozzle_ and _Original Prusa XL - 5T Input Shaper 0.4 mm nozzle_
-3. This provides you with the correct settings for our printers so you can slice your design.  When you go to **Prusa Connect** You will see our actual printers: _Alt-MakersXL5_ and _PLA/PETG - CoreOne+_
-4. Slice your model, then instead of exporting G-code to a file, choose **Send to Connect** and choose the correct printer. Confirm the send — the job uploads to Prusa Connect and appears in the printer's queue.
-5. Walk to the printer and start the print from its touchscreen (or confirm it starts automatically, depending on the printer's settings).
-
-!!! warning "Troubleshooting"
-    - **"Could not connect" / test fails:** the printer is powered off or has failed to connect to the network, turn it off and on again
-    - **Print sent but printer shows nothing:** it may still be loading — wait ~30 seconds. If nothing comes check the network connection in the touchscreen
-
-**Resources**
-
-- [PrusaSlicer download](https://www.prusa3d.com/page/prusaslicer_424/)
-- [Prusa Connect and PrusaLink explained](https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_1)
-- [Adding the printer to Prusa Connect](https://help.prusa3d.com/article/adding-the-printer-to-prusa-connect-core-one-mk4-s-mk3-9-s-mk3-5-s-xl-mini_1)
-
-## Safety
-
-!!! danger "Required before first use"
-
-- **PPE:** Burn awareness around hot nozzles/beds on all FFF machines (Core Ones, XL). 
-- **Ventilation:** Materials like nylon and ABS/ASA off-gas more than PLA — we do not print ABS or ASA because of this, the nylon printer will have dedicated ventilation. 
-- **Printing overnight is allowed, but make sure the light in the machine is shut off in the Control Menu in Prusa Connect**
-- **Nozzle handling:** Don't touch the nozzle or bed shortly after a print finishes — both stay hot well after printing stops.
 
 ## FAQ
 
