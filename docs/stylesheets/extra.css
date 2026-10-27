@@ -73,3 +73,17 @@
 .md-nav__link:hover {
   color: #65826a;
 }
+
+/* "Suggest an update" box at the bottom of every page (overrides/main.html) */
+.wiki-feedback {
+  margin-top: 3rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #65826a;
+  border-radius: 4px;
+  background-color: var(--md-accent-fg-color--transparent, #65826a1a);
+  font-size: 0.75rem;
+}
+.wiki-feedback p { margin: 0.4rem 0; }
+.wiki-feedback__title { font-weight: 600; }
+.wiki-feedback__actions .md-button { margin: 0.3rem 0.4rem 0.3rem 0; }
+.wiki-feedback__hint { opacity: 0.75; }

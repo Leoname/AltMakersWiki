@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ super() }}
+  {% if page and page.file %}
+    <aside class="wiki-feedback">
+      <p class="wiki-feedback__title">Something outdated, wrong or missing on this page?</p>
+      <p class="wiki-feedback__actions">
+        <a class="md-button md-button--primary" href="{{ config.extra.wiki_updates_url }}" target="_blank" rel="noopener">
+          Suggest an update on Discord
+        </a>
+        {% if page.edit_url %}
+          <a class="md-button" href="{{ page.edit_url }}" target="_blank" rel="noopener">
+            Edit this page on GitHub
+          </a>
+        {% endif %}
+      </p>
+      <p class="wiki-feedback__hint">
+        Posting in #wiki-updates? Mention the page: <strong>{{ page.title }}</strong>
+      </p>
+    </aside>
+  {% endif %}
+{% endblock %}

@@ -1,9 +1,15 @@
 site_name: Makerspace Wiki
 site_description: Tool and equipment reference wiki for our makerspace
 site_url: https://wiki.alt-makers.com/
+repo_url: https://github.com/ApocPro/AltMakersWiki
+repo_name: AltMakersWiki
+edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
+  icon:
+    edit: material/pencil
   font:
     text: Poppins
   palette:
@@ -25,6 +31,7 @@ theme:
     - search.highlight
     - content.code.copy
     - toc.integrate
+    - content.action.edit
 
 nav:
   - Home: index.md
@@ -51,6 +58,9 @@ markdown_extensions:
 
 plugins:
   - search
+
+extra:
+  wiki_updates_url: https://discord.com/channels/1546521146420105216/1557994264976167012
 
 extra_css:
   - stylesheets/extra.css
