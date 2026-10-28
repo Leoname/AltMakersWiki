@@ -245,4 +245,4 @@ A: Bed adhesion issues are usually caused by print settings or sheet selection. 
 3. Enable a Brim: For models with small contact areas or large flat footprints, add a brim in your slicer settings.
 4. Check Community Reports: Check the Discord server to see if a specific printer has been flagged for issues.
 
-Printer calibration (including bed leveling) is performed regularly by shop staff, so please do not re-calibration on your own and raise the issue in #report-a-problem.
+Printer calibration (including bed leveling) is performed regularly by shop staff, so please do not re-calibrate on your own and raise the issue in #report-a-problem.
